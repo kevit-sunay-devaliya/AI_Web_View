@@ -1,0 +1,53 @@
+<div class="cart-header">
+  <h1 class="cart-title">Your Cart</h1>
+  <p class="cart-subtitle">Review items before proceeding</p>
+</div>
+
+<div class="cart-card">
+  <table>
+    <thead>
+      <tr>
+        <th>Item Name</th>
+        <th>Loose Qty</th>
+        <th>Box Qty</th>
+        <th>Amount (₹)</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of getCartItems()">
+        <td>{{ item.name }}</td>
+        <td>{{ item.qty.loose }}</td>
+        <td>{{ item.qty.box }}</td>
+        <td>₹{{ getItemTotal(item) }}</td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td colspan="3"><strong>Total</strong></td>
+        <td>
+          <strong>₹{{ getTotal() }}</strong>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div class="cart-back">
+  <button class="back-btn" routerLink="/">
+    <span class="back-icon">‹ </span>
+    <span>Back</span>
+  </button>
+</div>
+
+<div class="submit-footer">
+  <button class="submit-btn" [disabled]="isSubmitting" (click)="onSubmit()">
+    <ng-container *ngIf="!isSubmitting; else loading"> Submit </ng-container>
+
+    <ng-template #loading>
+      <span class="spinner"></span>
+      Processing...
+    </ng-template>
+  </button>
+</div>

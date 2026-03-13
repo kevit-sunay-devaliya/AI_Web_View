@@ -1,0 +1,97 @@
+<div class="section-header">
+  <h1 class="section-title">Your Products</h1>
+  <p class="section-subtitle">Add quantities to continue</p>
+</div>
+
+<div class="search-action-card" (click)="goToInventory()">
+  <div class="search-left">
+    <span class="search-icon">🔍</span>
+    <div class="search-text">
+      <span class="search-title">Search Products</span>
+      <span class="search-subtitle">Browse full catalog</span>
+    </div>
+  </div>
+
+  <div class="search-right">
+    <span class="arrow">›</span>
+  </div>
+</div>
+
+<div class="product-list">
+  <div
+    class="product-row"
+    *ngFor="let product of products"
+    [class.invalid]="showValidationError && isInvalid(product)"
+  >
+    <div class="image-section">
+      <img [src]="product.image" />
+    </div>
+
+    <div class="details-section">
+      <div class="product-header">
+        <h3 class="product-name">{{ product.name }}</h3>
+
+        <button class="delete-btn" (click)="removeProduct(product)">
+          Remove
+        </button>
+      </div>
+
+      <div class="price-row">
+        <div class="price-text">
+          <span class="price-type">Loose:</span>
+          <span class="price-value">₹{{ product.price.loose }}</span>
+        </div>
+
+        <div class="qty-control">
+          <button
+            [disabled]="product.qty.loose === 0"
+            (click)="removeQty(product, 'loose')"
+          >
+            −
+          </button>
+          <span>{{ product.qty.loose }}</span>
+          <button (click)="addQty(product, 'loose')">+</button>
+        </div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-text">
+          <span class="price-type">Box:</span>
+          <span class="price-value">₹{{ product.price.box }}</span>
+        </div>
+
+        <div class="qty-control">
+          <button
+            [disabled]="product.qty.box === 0"
+            (click)="removeQty(product, 'box')"
+          >
+            −
+          </button>
+          <span>{{ product.qty.box }}</span>
+          <button (click)="addQty(product, 'box')">+</button>
+        </div>
+      </div>
+
+      <div class="row-error" *ngIf="showValidationError && isInvalid(product)">
+        Please either remove the item or select a quantity to continue.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cart-bar" *ngIf="getTotalItems() > 0" (click)="goToCart()">
+  <div class="cart-left">
+    <span class="cart-icon">🛒</span>
+    <div class="cart-info">
+      <span class="cart-items">
+        {{ getTotalItems() }} item{{ getTotalItems() > 1 ? "s" : "" }}
+      </span>
+      <span class="cart-amount">₹{{ getTotal() }}</span>
+    </div>
+  </div>
+
+  <div class="cart-cta">
+    <span>View Cart</span>
+    <span class="play-arrow"></span>
+  </div>
+</div>

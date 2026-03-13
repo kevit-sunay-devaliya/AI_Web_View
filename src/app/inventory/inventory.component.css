@@ -1,0 +1,154 @@
+.section-header {
+  max-width: 900px;
+  margin: 16px auto 12px;
+  padding: 0 12px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.section-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.search-wrapper {
+  max-width: 900px;
+  margin: 12px auto 10px;
+  padding: 0 12px;
+}
+
+.search-box {
+  height: 48px;
+  background: #f9fafb;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+}
+
+.search-icon {
+  font-size: 16px;
+  color: #9ca3af;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  outline: none;
+}
+
+.product-list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8px 12px 70px;
+}
+
+.product-row {
+  display: flex;
+  gap: 14px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.image-section {
+  width: 72px;
+  height: 72px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-section img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.details-section {
+  flex: 1;
+}
+
+.product-name {
+  font-size: 15.5px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.price-text {
+  display: flex;
+  gap: 6px;
+}
+
+.price-type {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.price-value {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-control button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+}
+
+.continue-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 12px;
+  background: #ffffff;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+}
+
+.continue-btn {
+  width: 100%;
+  height: 48px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: #2e7d32;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}

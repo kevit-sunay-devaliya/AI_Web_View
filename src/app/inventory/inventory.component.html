@@ -1,0 +1,85 @@
+<div class="section-header">
+  <h1 class="section-title">Products</h1>
+  <p class="section-subtitle">Browse products and add items</p>
+</div>
+
+<div class="search-wrapper">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input
+      type="text"
+      placeholder="Search products..."
+      [(ngModel)]="search"
+      (ngModelChange)="applyFilter()"
+    />
+  </div>
+</div>
+
+<div class="product-list">
+  <div
+    class="product-row"
+    *ngFor="let product of filteredProducts; trackBy: trackById"
+  >
+    <div class="image-section">
+      <img [src]="product.image" [alt]="product.name" />
+    </div>
+
+    <div class="details-section">
+      <h3 class="product-name">{{ product.name }}</h3>
+
+      <div class="price-row">
+        <div class="price-text">
+          <span class="price-type">Loose:</span>
+          <span class="price-value">₹{{ product.price.loose }}</span>
+        </div>
+
+        <div class="qty-control">
+          <button
+            [disabled]="getQty(product, 'loose') === 0"
+            (click)="removeQty(product, 'loose')"
+          >
+            −
+          </button>
+          <span>{{ getQty(product, "loose") }}</span>
+          <button (click)="addQty(product, 'loose')">+</button>
+        </div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-text">
+          <span class="price-type">Box:</span>
+          <span class="price-value">₹{{ product.price.box }}</span>
+        </div>
+
+        <div class="qty-control">
+          <button
+            [disabled]="getQty(product, 'box') === 0"
+            (click)="removeQty(product, 'box')"
+          >
+            −
+          </button>
+          <span>{{ getQty(product, "box") }}</span>
+          <button (click)="addQty(product, 'box')">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="inventory-footer">
+  <div class="footer-inner">
+    <button class="back-btn" (click)="goBackToProducts()">Back</button>
+
+    <button
+      class="done-btn"
+      [disabled]="!hasSelectedItems"
+      (click)="goBackToProducts()"
+    >
+      Done
+    </button>
+  </div>
+</div> -->
+
+<div class="continue-footer">
+  <button class="continue-btn" (click)="onContinue()">Continue</button>
+</div>
